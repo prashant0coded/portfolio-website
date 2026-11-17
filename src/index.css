@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --bg: #F3F0EA; --fg: #1F1D1A; --muted: #6B665E; --line: #DDD8CE; --accent: #2F6B57; color-scheme: light; }
+.dark { --bg: #171613; --fg: #ECE8DF; --muted: #A19B90; --line: #33312B; --accent: #6FC3A5; color-scheme: dark; }
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  body { @apply bg-bg text-fg font-sans antialiased; line-height: 1.65; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .7s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+}
